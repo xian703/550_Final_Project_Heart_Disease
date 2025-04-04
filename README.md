@@ -12,7 +12,6 @@ This project performs exploratory data analysis and visualization on the UCI Hea
 ## 2. Data Description
 
 The dataset for this project comes from multiple files provided by the UCI repository. The files included in the `heart_disease_data/` directory are:
-
 - **cleveland.data:** Raw data from the Cleveland dataset.
 - **hungarian.data:** Raw data from the Hungarian dataset.
 - **switzerland.data:** Raw data from the Switzerland dataset.
@@ -20,9 +19,9 @@ The dataset for this project comes from multiple files provided by the UCI repos
 - **heart-disease.names:** Metadata file describing the attributes and data structure.
 
 **Note:**  
-- You can choose to use one of the datasets (e.g., `processed.cleveland.data`) for analysis or merge multiple files after ensuring that the columns align.  
-- If the original data is too large or sensitive, a synthetic or subset version may be used while preserving the same structure.
-
+- T use one of the datasets  `processed.cleveland.data` for analysis or merge multiple files after ensuring that the columns align.  
+- All table and figure generation code is in the final_report.Rmd
+- Use Makefile or Knit to generate the final_report.
 ---
 
 ## 3. Directory Structure
