@@ -1,0 +1,68 @@
+---
+title: "Final Project_Heart_Disease_Analysis"
+author: "Xian Wu"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+# Introduction
+
+This report analyzes the Heart Disease Dataset from the UCI Machine Learning Repository. The objective is to explore patterns in the data and assess factors contributing to heart disease. 
+The dataset contains various clinical attributes that can help determine the likelihood of heart disease in patients.
+
+# Load Data
+
+```{r, load-data}
+library(tidyverse)
+library(here)
+
+data_path <- here::here("heart_disease_data", "processed.cleveland.data")
+
+dataset <- read.csv(data_path, header = FALSE, stringsAsFactors = FALSE)
+
+colnames(dataset) <- c("age", "sex", "cp", "trestbps", "chol", "fbs", 
+                       "restecg", "thalach", "exang", "oldpeak", 
+                       "slope", "ca", "thal", "num")
+
+dataset$num <- as.factor(dataset$num)
+dataset$sex <- factor(dataset$sex, labels = c("Female", "Male"))
+
+head(dataset)
+
+```
+
+# Summary Table
+
+```{r, summary-table}
+library(gt)
+
+table_summary <- dataset %>%
+  select(age, sex, chol, thalach, num) %>%
+  group_by(num) %>%
+  summarise(
+    avg_age = mean(age, na.rm = TRUE),
+    avg_chol = mean(chol, na.rm = TRUE),
+    avg_thalach = mean(thalach, na.rm = TRUE)
+  )
+
+gt(table_summary) %>%
+  tab_header(title = "Summary Statistics by Heart Disease Status")
+```
+
+The table above provides a summary of key clinical attributes by heart disease status.The table presents the average age, cholesterol levels, and maximum heart rate achieved across different heart disease statuses. The results indicate that individuals with higher heart disease severity tend to have higher average cholesterol levels compared to those without heart disease.
+
+# Data Visualization
+
+```{r, plot-figure}
+library(ggplot2)
+
+ggplot(dataset, aes(x = age, fill = num)) +
+  geom_histogram(bins = 20, alpha = 0.7) +
+  labs(title = "Age Distribution by Heart Disease Status",
+       x = "Age",
+       y = "Count",
+       fill = "Heart Disease") 
+```
+
+The histogram above illustrates the distribution of age among individuals diagnosed with heart disease compared to those without.Individuals without heart disease are the most frequent group across all age ranges, particularly around ages 50–60.
+
