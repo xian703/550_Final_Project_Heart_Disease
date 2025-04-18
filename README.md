@@ -22,6 +22,8 @@ The dataset for this project comes from multiple files provided by the UCI repos
 - T use one of the datasets  `processed.cleveland.data` for analysis or merge multiple files after ensuring that the columns align.  
 - All table and figure generation code is in the final_report.Rmd
 - Use Makefile or Knit to generate the final_report.
+- To restore the R package environment, run `make install` which executes `renv::restore()`.
+
 ---
 
 ## 3. Directory Structure
