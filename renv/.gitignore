@@ -1,8 +1,21 @@
+# Ignore local renv library and temp folders
 renv/library/
 renv/local/
 renv/cellar/
-renv/lock/
 renv/python/
 renv/sandbox/
 renv/staging/
 
+# Other local folders don't want in Git
+library/
+local/
+cellar/
+lock/
+python/
+sandbox/
+staging/
+
+# Ignore personal/temporary files
+.RData
+.Rhistory
+.Rproj.user/
