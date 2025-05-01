@@ -10,7 +10,8 @@ report: install
 	Rscript -e "rmarkdown::render('final_report.Rmd', output_file='final_report.html')"
 
 run:
-	docker build -t xian703/heart-disease-report:latest .
+	docker build -t docker build -t xianwu00836/heart-disease-report:latest .
 	mkdir -p report
-	docker run --rm -v "$(PWD)/report":/report xian703/heart-disease-report:latest
+	docker run --rm -v "$(PWD)/report":/report xianwu00836/heart-disease-report:latest
+
 
