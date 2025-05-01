@@ -1,0 +1,20 @@
+# 1
+renv/library/
+renv/python/
+renv/cache/
+
+#2
+.Rhistory
+.RData
+.Rproj.user/
+.Rprofile
+
+# 3
+report/
+*.html
+
+# 4
+backup_untracked/
+*.zip
+Finalproject_part2.html
+

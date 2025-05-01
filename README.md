@@ -24,6 +24,28 @@ The dataset for this project comes from multiple files provided by the UCI repos
 - Use Makefile or Knit to generate the final_report.
 - To restore the R package environment, run `make install` which executes `renv::restore()`.
 
+
+## How to build the Docker image
+docker build -t xian703/heart-disease-report:latest .
+
+## How to run the report
+docker run --rm \
+  -v "$(pwd)/report":/home/rstudio/project/report \
+  xian703/heart-disease-report:latest
+
+## Pull from DockerHub
+You can also pull the pre-built image directly:
+
+```bash
+docker pull xian703/heart-disease-report:latest
+
+## How to build the Docker image
+
+```bash
+docker build -t xian703/heart-disease-report:latest .
+
+
+  
 ---
 
 ## 3. Directory Structure
