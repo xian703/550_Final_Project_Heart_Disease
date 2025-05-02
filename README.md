@@ -30,19 +30,15 @@ docker build -t xianwu00836/heart-disease-report:latest .
 
 
 ## pull from DockerHub
-
-You can also pull the pre-built image directly:
-
 docker pull xianwu00836/heart-disease-report:latest
 
 
 ## How to run the report
-
+mkdir -p report
 docker run --rm \
   -v "$(pwd)/report":/report \
-  --entrypoint sh \
-  xianwu00836/heart-disease-report:latest \
-  -c "cp /home/rstudio/project/final_report.html /report/"
+  xianwu00836/heart-disease-report:latest
+ls report/
 
   
 ---
@@ -60,8 +56,10 @@ heart-disease-analysis/
 │   ├── processed.cleveland.data
 │   └── heart-disease.names
 ├── code/
-│   ├── create_table.R         # R script to generate the required table
-│   └── create_figure.R        # R script to generate the required figure
-├── final_report.Rmd           # R Markdown file for the final analysis report
-├── Makefile                   # Makefile to build the final report
-└── README.md                  # This file
+│   ├── create_table.R         
+│   └── create_figure.R        
+├─ final_report.Rmd
+├─ Makefile
+├─ renv.lock
+├─ Dockerfile
+└─ README.md
