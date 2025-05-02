@@ -17,5 +17,5 @@ run:
 	  --entrypoint sh \
 	  xianwu00836/heart-disease-report:latest \
 	  -c "cp /home/rstudio/project/final_report.html /report/"
-	@echo "↪ report/final_report.html ready"
+	@echo "report/final_report.html ready"
 
