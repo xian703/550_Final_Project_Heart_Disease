@@ -35,11 +35,13 @@ docker pull xianwu00836/heart-disease-report:latest
 
 ## How to run the report
 mkdir -p report
+docker pull xianwu00836/heart-disease-report:latest
 docker run --rm \
   -v "$(pwd)/report":/report \
-  xianwu00836/heart-disease-report:latest
+  --entrypoint sh \
+  xianwu00836/heart-disease-report:latest \
+  -c "cp /home/rstudio/project/final_report.html /report/"
 ls report/
-
   
 ---
 
